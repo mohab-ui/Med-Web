@@ -1,0 +1,227 @@
+/* --- ملف التصميم الطبي الاحترافي (Medical Portal Theme) --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+
+body {
+    background-color: #f3f6f9; /* رمادي فاتح جداً ومريح */
+    color: #2d3748;
+    min-height: 100vh;
+    direction: rtl; 
+}
+
+/* ===========================
+   1. إصلاح أزرار المحاضرات (المشكلة الرئيسية)
+   =========================== */
+
+/* الكارت اللي شايل المحاضرة */
+.lecture-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    /* ترتيب العناصر: الاسم يمين والزراير شمال */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* عشان في الموبايل ينزلوا تحت بعض */
+    gap: 15px;
+}
+
+/* الحاوية اللي شايلة الزراير */
+.lec-actions {
+    display: flex;
+    gap: 10px; /* مسافة ثابتة بين كل زرار والتاني تمنع التداخل */
+    align-items: center;
+}
+
+/* تصميم الزرار نفسه (شكل كبسولة مودرن) */
+.btn {
+    text-decoration: none;
+    padding: 8px 18px; /* مساحة مريحة للكلام */
+    border-radius: 50px; /* حواف دائرية بالكامل */
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* مسافة بين الايقونة والكلمة */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* ضل خفيف */
+    border: none;
+}
+
+/* تأثير لما تقف بالماوس */
+.btn:hover {
+    transform: translateY(-2px); /* يترفع لفوق سنة */
+    filter: brightness(1.1); /* لونه يزهزه */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* ألوان الزراير (ألوان طبية هادية) */
+.pdf-btn { 
+    background-color: #e53e3e; /* أحمر */
+}
+.audio-btn { 
+    background-color: #3182ce; /* أزرق */
+}
+.quiz-btn { 
+    background-color: #d69e2e; /* برتقالي */
+}
+
+/* معلومات المحاضرة (الاسم والرقم) */
+.lec-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.lec-info h3 {
+    font-size: 1rem;
+    color: #2d3748;
+    margin: 0;
+}
+.lec-number {
+    background: #ebf8ff;
+    color: #3182ce;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* ===========================
+   2. إصلاح الداشبورد (عشان تبقى بيضاء مش زرقاء)
+   =========================== */
+.dashboard-container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+
+.main-header {
+    background: white;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 25px; border-radius: 12px;
+    border: 1px solid #e2e8f0; margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.subject-card {
+    background: white; /* لازم أبيض */
+    padding: 30px 20px;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-color: #bee3f8;
+}
+
+.subject-card .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+.subject-card:nth-child(1) .icon { color: #dd6b20; } /* Pharma */
+.subject-card:nth-child(2) .icon { color: #38a169; } /* Para */
+.subject-card:nth-child(3) .icon { color: #805ad5; } /* Micro */
+.subject-card:nth-child(4) .icon { color: #e53e3e; } /* Patho */
+.subject-card:nth-child(5) .icon { color: #3182ce; } /* ECE1 */
+
+.subject-card h3 { color: #2d3748; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
+.subject-card p { color: #718096; font-size: 0.9rem; }
+
+
+/* ===========================
+   3. باقي التنسيقات (Login & Header)
+   =========================== */
+.login-container {
+    background: white; padding: 3rem; border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+    width: 90%; max-width: 400px; text-align: center;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.login-header h1 { color: #2c5282; margin-bottom: 5px; }
+.login-header p { color: #718096; margin-bottom: 25px; font-size: 0.9rem; }
+.input-group { margin-bottom: 15px; text-align: right; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; color: #4a5568;}
+.input-group input {
+    width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 8px; outline: none; background: #f7fafc;
+}
+.input-group input:focus { border-color: #3182ce; background: white; box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1); }
+button {
+    width: 100%; padding: 12px; border: none; border-radius: 8px;
+    background-color: #3182ce; color: white; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.2s;
+}
+button:hover { background-color: #2c5282; }
+
+/* رسائل الخطأ */
+.error-message, .success-message { display: none; margin-top: 10px; font-size: 0.85rem; }
+.error-message { color: #e53e3e; } .success-message { color: #38a169; }
+.switch-msg { margin-top: 20px; font-size: 0.85rem; color: #718096; }
+.switch-msg span { color: #3182ce; font-weight: bold; cursor: pointer; text-decoration: underline; }
+
+/* أزرار الهيدر والرجوع */
+.logout-btn {
+    width: auto !important; background: transparent !important; color: #e53e3e; border: 1px solid #e53e3e; padding: 6px 15px; font-size: 0.9rem;
+}
+.logout-btn:hover { background: #fff5f5 !important; }
+.course-header {
+    background: white; padding: 25px; text-align: center; border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 30px; position: relative;
+}
+.back-btn { 
+    position: absolute; right: 25px; top: 25px; width: auto; 
+    background: #edf2f7; color: #4a5568; padding: 8px 20px; 
+    border-radius: 6px; border: none; cursor: pointer; font-weight: bold;
+}
+.content-container { max-width: 900px; margin: 0 auto; padding: 0 20px 50px 20px; }
+
+/* كارت الكتاب */
+.course-book-card {
+    background-color: #ebf8ff; border: 1px solid #bee3f8; border-radius: 12px;
+    padding: 25px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;
+}
+.book-info { display: flex; align-items: center; gap: 15px; }
+.book-icon { font-size: 2.5rem; }
+.download-book-btn {
+    background-color: #3182ce; color: white; text-decoration: none; padding: 10px 25px;
+    border-radius: 8px; font-weight: bold; font-size: 0.9rem; transition: 0.2s;
+}
+.download-book-btn:hover { background-color: #2c5282; }
+
+/* للموبايل */
+@media (max-width: 600px) {
+    .lecture-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .lec-actions { width: 100%; justify-content: flex-end; } /* الزراير تيجي يمين في الموبايل */
+    .course-book-card { flex-direction: column; text-align: center; }
+    .book-info { flex-direction: column; }
+    .download-book-btn { width: 100%; justify-content: center; }
+}
+/* زرار المعاينة (العين) */
+.eye-btn {
+    background-color: #edf2f7 !important; /* لون رمادي فاتح */
+    color: #4a5568 !important;
+    border: 1px solid #cbd5e0 !important;
+    padding: 8px 12px !important; /* مربع صغير */
+    border-radius: 8px !important;
+    font-size: 1.1rem !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    text-decoration: none;
+    margin-right: 5px; /* مسافة بينه وبين زرار التحميل */
+}
+
+.eye-btn:hover {
+    background-color: #e2e8f0 !important;
+    transform: scale(1.1);
+    cursor: pointer;
+}
