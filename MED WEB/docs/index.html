@@ -1,62 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الدفعة - تسجيل ودخول</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <div class="login-container">
-        <div id="login-box">
-            <div class="login-header">
-                <h1>👋 تسجيل الدخول</h1>
-                <p>لو سجلت قبل كدة، ادخل بياناتك</p>
-            </div>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label>الرقم القومي</label>
-                    <input type="text" id="loginID" placeholder="رقمك القومي" required>
-                </div>
-                <div class="input-group">
-                    <label>كلمة المرور</label>
-                    <input type="password" id="loginPass" placeholder="الباسورد بتاعك" required>
-                </div>
-                <button type="submit">دخول</button>
-                <p class="switch-msg">لسه مسجلتش؟ <span onclick="showRegister()">انشئ حساب من هنا</span></p>
-                <p id="loginError" class="error-message"></p>
-            </form>
-        </div>
-
-        <div id="register-box" style="display: none;">
-            <div class="login-header">
-                <h1>✨ حساب جديد</h1>
-                <p>تفعيل الحساب (متاح للكشوفات فقط)</p>
-            </div>
-            <form id="registerForm">
-                <div class="input-group">
-                    <label>الرقم القومي</label>
-                    <input type="text" id="regID" placeholder="عشان نتأكد إنك من الدفعة" required>
-                </div>
-                <div class="input-group">
-                    <label>الاسم الثلاثي</label>
-                    <input type="text" id="regName" placeholder="عشان يظهر في بروفايلك" required>
-                </div>
-                <div class="input-group">
-                    <label>انشئ كلمة مرور</label>
-                    <input type="password" id="regPass" placeholder="اختار باسورد قوي" required>
-                </div>
-                <button type="submit" style="background-color: #27ae60;">تفعيل الحساب</button>
-                <p class="switch-msg">عندك حساب؟ <span onclick="showLogin()">سجل دخول من هنا</span></p>
-                <p id="regError" class="error-message"></p>
-                <p id="regSuccess" class="success-message" style="display:none; color:green; margin-top:10px;">تم التفعيل! سجل دخول الآن.</p>
-            </form>
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
