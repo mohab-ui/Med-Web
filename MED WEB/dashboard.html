@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرئيسية - مواد الترم</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="main-header">
+            <div class="user-info">
+                <span>👋 أهلاً يا دكتور/ة </span>
+                <span id="welcomeName">...</span>
+            </div>
+            <button onclick="logout()" class="logout-btn">خروج</button>
+        </header>
+
+        <div class="subjects-grid">
+            
+            <div class="subject-card" onclick="openSubject('pharma')">
+                <div class="icon">💊</div>
+                <h3>PHARMA</h3>
+                <p>علم الأدوية</p>
+            </div>
+
+            <div class="subject-card" onclick="openSubject('para')">
+                <div class="icon">🐛</div>
+                <h3>PARA</h3>
+                <p>الباراسيتولوجي</p>
+            </div>
+
+            <div class="subject-card" onclick="openSubject('micro')">
+                <div class="icon">🧫</div>
+                <h3>MICRO</h3>
+                <p>المايكروبايولوجي</p>
+            </div>
+
+            <div class="subject-card" onclick="openSubject('patho')">
+                <div class="icon">🔬</div>
+                <h3>PATHO</h3>
+                <p>الباثولوجي</p>
+            </div>
+
+            <div class="subject-card" onclick="openSubject('ece1')">
+                <div class="icon">⚡</div>
+                <h3>ECE 1</h3>
+                <p>الكترونيات</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const userName = localStorage.getItem('currentUser');
+        if(userName) {
+            document.getElementById('welcomeName').innerText = userName;
+        } else {
+            window.location.href = "index.html";
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = "index.html";
+        }
+
+        function openSubject(subjectCode) {
+            localStorage.setItem('selectedCourse', subjectCode);
+            window.location.href = "view_course.html"; 
+        }
+    </script>
+</body>
+</html>
